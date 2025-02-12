@@ -3,6 +3,7 @@ plugins {
     id("io.micronaut.application") version "4.4.2"
     id("io.micronaut.test-resources") version "4.4.2"
     id("io.micronaut.aot") version "4.4.2"
+    id "org.flywaydb.flyway" version "9.22.3"
 }
 
 version = "0.1"
@@ -39,8 +40,13 @@ application {
     mainClass = "com.piyal.Application"
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("21")
-    targetCompatibility = JavaVersion.toVersion("21")
+    sourceCompatibility = JavaVersion.toVersion("17")
+    targetCompatibility = JavaVersion.toVersion("17")
+}
+flyway {
+    url = "jdbc:mysql://127.0.0.1:3306/mydatabase"
+    user = "user"
+    password = "password"
 }
 
 
