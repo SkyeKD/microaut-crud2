@@ -52,6 +52,13 @@ jobs:
         run: ./gradlew test
       - name: Build JAR
         run: ./gradlew build
+      - name: Upload JAR to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0
+          files: build/libs/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
